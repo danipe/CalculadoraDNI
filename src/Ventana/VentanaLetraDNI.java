@@ -1,23 +1,34 @@
 package Ventana;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Dimension;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.Component;
+import javax.swing.Box;
+import javax.swing.JButton;
+import java.awt.Color;
 
 
 /*
  * By Paco Gomez
- * Esta ventana tendrá dos JTextFields
- * El primero recojerá el DNI
- * El segundo calculará la letra al apretar el botón
+ * Esta ventana tendrï¿½ dos JTextFields
+ * El primero recojerï¿½ el DNI
+ * El segundo calcularï¿½ la letra al apretar el botï¿½n
  * 
  * */
 public class VentanaLetraDNI extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
+	private JLabel lblNewLabel_1;
+	private JTextField textField_1;
+	private Component verticalGlue;
+	private JButton btnCalcular;
 
 
 
@@ -28,9 +39,40 @@ public class VentanaLetraDNI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabel = new JLabel("Introduce DNI");
+		lblNewLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblNewLabel.setForeground(Color.WHITE);
+		contentPane.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setMaximumSize(new Dimension(250,20));
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		lblNewLabel_1 = new JLabel("Letra DNI Calculada");
+		lblNewLabel_1.setAlignmentX(Component.CENTER_ALIGNMENT);
+		lblNewLabel_1.setForeground(Color.WHITE);
+		contentPane.add(lblNewLabel_1);
+		
+		textField_1 = new JTextField();
+		textField_1.setEditable(false);
+		textField_1.setMaximumSize(new Dimension(250,20));
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		verticalGlue = Box.createVerticalGlue();
+		contentPane.add(verticalGlue);
+		
+		btnCalcular = new JButton("Calcular");
+		btnCalcular.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnCalcular.setBackground(Color.DARK_GRAY);
+		btnCalcular.setForeground(Color.WHITE);
+		contentPane.add(btnCalcular);
 	}
 
 }
