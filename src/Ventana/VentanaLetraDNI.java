@@ -1,17 +1,21 @@
 package Ventana;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import java.awt.Component;
-import javax.swing.Box;
-import javax.swing.JButton;
-import java.awt.Color;
+
+import Logica.CalcularLetra;
 
 
 /*
@@ -29,6 +33,7 @@ public class VentanaLetraDNI extends JFrame {
 	private JTextField textField_1;
 	private Component verticalGlue;
 	private JButton btnCalcular;
+	private CalcularLetra cl = null;
 
 
 
@@ -69,6 +74,12 @@ public class VentanaLetraDNI extends JFrame {
 		contentPane.add(verticalGlue);
 		
 		btnCalcular = new JButton("Calcular");
+		btnCalcular.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				cl = new CalcularLetra(textField.getText());
+				textField_1.setText(String.valueOf(cl.devolverLetra()));
+			}
+		});
 		btnCalcular.setAlignmentX(Component.CENTER_ALIGNMENT);
 		btnCalcular.setBackground(Color.DARK_GRAY);
 		btnCalcular.setForeground(Color.WHITE);

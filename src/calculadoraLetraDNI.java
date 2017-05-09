@@ -4,7 +4,7 @@ import Ventana.VentanaLetraDNI;
 
 /*
  * By Paco Gomez
- * Esta ventana unicamente será el main que lanza la ventana
+ * Esta ventana unicamente serï¿½ el main que lanza la ventana
  * 
  * */
 public class calculadoraLetraDNI {
